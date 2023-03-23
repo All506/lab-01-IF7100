@@ -10,6 +10,15 @@ import junit.framework.TestSuite;
 public class AppTest 
     extends TestCase
 {
+    public void testMain() {
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        String[] args = {"hola", "mundo"};
+        MiAplicacion.main(args);
+
+        assertEquals("El valor del primer parámetro es: hola\r\nEl valor del segundo parámetro es: mundo\r\n", outContent.toString());
+    }
     /**
      * Create the test case
      *
